@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  react:
+    build:
+      context: .
+      args:
+        APP_PATH: ch1
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./devbox:/devbox
+      - /devbox/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - APP_PATH=app-one
+    stdin_open: true
+    tty: true
